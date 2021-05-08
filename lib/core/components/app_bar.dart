@@ -8,7 +8,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       flexibleSpace: Container(
-        decoration: buildGradientBoxDecoration(),
+        decoration: LinearGradientBoxDecoration().buildGradientBoxDecoration(),
       ),
       title: Text('$title',
           style: Theme.of(context)

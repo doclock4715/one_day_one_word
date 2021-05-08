@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:one_day_one_word/core/base/base_state.dart';
+import 'package:one_day_one_word/core/components/app_bar.dart';
 import 'package:share/share.dart';
-import '../../components/app_bar.dart';
-import '../../constants/lists.dart';
-import '../home/word_page.dart';
+import '../home/word_page_view.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Favourites extends StatefulWidget {
@@ -12,7 +12,7 @@ class Favourites extends StatefulWidget {
   _FavouritesState createState() => _FavouritesState();
 }
 
-class _FavouritesState extends State<Favourites> {
+class _FavouritesState extends State<Favourites> with BaseState {
   @override
   void initState() {
     WordPage.favouriteWordsBox.get('favourites') != null
@@ -24,7 +24,7 @@ class _FavouritesState extends State<Favourites> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: 'Favori Kelimelerim'),
+      appBar: MyAppBar(title: applicationStrings.titleFav),
       body: ListView.builder(
         itemCount: Favourites.favourites.length,
         itemBuilder: (context, i) {
@@ -32,18 +32,18 @@ class _FavouritesState extends State<Favourites> {
             actionPane: SlidableDrawerActionPane(),
             actions: [
               IconSlideAction(
-                caption: 'Paylaş',
+                caption: applicationStrings.share,
                 color: Colors.indigo,
                 icon: Icons.share,
                 onTap: () {
                   Share.share(
-                      '${wordEnglish[Favourites.favourites[i]]} - ${wordTurkish[Favourites.favourites[i]]}');
+                      '${wordContent.wordEnglish[Favourites.favourites[i]]} - ${wordContent.wordTurkish[Favourites.favourites[i]]}');
                 },
               ),
             ],
             secondaryActions: [
               IconSlideAction(
-                caption: 'Delete',
+                caption: applicationStrings.delete,
                 color: Colors.redAccent,
                 icon: Icons.delete_forever,
                 onTap: () {
@@ -59,7 +59,7 @@ class _FavouritesState extends State<Favourites> {
             ],
             child: ListTile(
               title: Text(
-                  '${Favourites.favourites[i] + 1}. ${wordEnglish[Favourites.favourites[i]]} - ${wordTurkish[Favourites.favourites[i]]}'),
+                  '${Favourites.favourites[i] + 1}. ${wordContent.wordEnglish[Favourites.favourites[i]]} - ${wordContent.wordTurkish[Favourites.favourites[i]]}'),
               onTap: () {
                 wordCounter = Favourites.favourites[i];
                 Navigator.pushNamed(context, '/');

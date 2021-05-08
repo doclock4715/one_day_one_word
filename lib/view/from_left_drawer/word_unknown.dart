@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:one_day_one_word/core/base/base_state.dart';
+import 'package:one_day_one_word/core/components/app_bar.dart';
 import 'package:share/share.dart';
-import '../../components/app_bar.dart';
-import '../../constants/lists.dart';
-import '../home/word_page.dart';
+import '../home/word_page_view.dart';
 
 class Unknown extends StatefulWidget {
   static List<int> unknown = [];
@@ -12,7 +12,7 @@ class Unknown extends StatefulWidget {
   _UnknownState createState() => _UnknownState();
 }
 
-class _UnknownState extends State<Unknown> {
+class _UnknownState extends State<Unknown> with BaseState{
   @override
   void initState() {
     WordPage.unknownWordsBox.get('unknowns') != null
@@ -24,7 +24,7 @@ class _UnknownState extends State<Unknown> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: 'Bilmediğim Kelimeler'),
+      appBar: MyAppBar(title: applicationStrings.titleUnknown),
       body: ListView.builder(
         itemCount: Unknown.unknown.length,
         itemBuilder: (context, i) {
@@ -32,18 +32,18 @@ class _UnknownState extends State<Unknown> {
             actionPane: SlidableDrawerActionPane(),
             actions: [
               IconSlideAction(
-                caption: 'Paylaş',
+                caption: applicationStrings.share,
                 color: Colors.indigo,
                 icon: Icons.share,
                 onTap: () {
                   Share.share(
-                      '${wordEnglish[Unknown.unknown[i]]} - ${wordTurkish[Unknown.unknown[i]]}');
+                      '${wordContent.wordEnglish[Unknown.unknown[i]]} - ${wordContent.wordTurkish[Unknown.unknown[i]]}');
                 },
               ),
             ],
             secondaryActions: [
               IconSlideAction(
-                caption: 'Delete',
+                caption: applicationStrings.delete,
                 color: Colors.redAccent,
                 icon: Icons.delete_forever,
                 onTap: () {
@@ -59,7 +59,7 @@ class _UnknownState extends State<Unknown> {
             ],
             child: ListTile(
               title: Text(
-                  '${Unknown.unknown[i] + 1}. ${wordEnglish[Unknown.unknown[i]]} - ${wordTurkish[Unknown.unknown[i]]}'),
+                  '${Unknown.unknown[i] + 1}. ${wordContent.wordEnglish[Unknown.unknown[i]]} - ${wordContent.wordTurkish[Unknown.unknown[i]]}'),
               onTap: () {
                 wordCounter = Unknown.unknown[i];
                 Navigator.pushNamed(context, '/');

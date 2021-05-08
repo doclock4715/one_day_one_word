@@ -1,4 +1,14 @@
-List<String> wordEnglish = [
+//singleton yapısı eklendi. Bu listelere class yapmamı söylemiştiniz hocam.
+//"Flutter geliştirmeye en iyi şekilde başlayın" videonuzda Color sabitleri için 
+//Singleton bir sınıf yapmıştınız, her ne kadar singletona tam hakim olmasamda sizden gördüğüm kadarıyla böyle
+//yaptım. Burda singleton kullnamak doğru çözüm mü bilmiyorum, Eğer yanlış çözümse, doğru çözüm yolunu söylerseniz
+//çok mutlu olurum hocam.
+
+class WordContent{
+static  WordContent instance = WordContent._init();
+WordContent._init(); 
+
+final List<String> wordEnglish = [
   'Extraordinary',
   'Dispatcher',
   'Decade',
@@ -51,7 +61,7 @@ List<String> wordEnglish = [
   'Relief',
   'Failure',
 ];
-List<String> wordTurkish = [
+final List<String> wordTurkish = [
   'Olağandışı, Görülmemiş, Alışılmamış',
   'Hareket Memuru, Sevk Memuru',
   '10 yıl',
@@ -104,7 +114,7 @@ List<String> wordTurkish = [
   'Rahatlama',
   'Başarısızlık',
 ];
-List<String> wordMeaning = [
+final List<String> wordMeaning = [
 'Bu kelime pozitif anlamlarda kullanılıyor genelde. Mesela, bit futbolcu sıradışı bir gol attığı zaman(Örneğin; Röveşatayla) bu kelimeyi kullanabiliriz veya bu sıfatı hakeden bazı insanlar içinde bu kelime kullanılabilir',
 'İnsaları yada acil durum araçlarını ihtiyacı olan yerlere göndermekle sorumlu/yükümlü kişi. Acil durum araçlarını itfaiye aracı yada ambulans gibi düşünebiliriz.Kısaca, dispatcher dediğimiz kelime bir kişi için kullanılır, bu kişi de sen 110,112,155 aradığında karşına çıkan kişidir. Ama bunun en iyi örneği bu Amerikalılarda olan 911 dir orası sadece polis yada ambulans değil hepsini kapsıyor. Kelimenin türkçe karşılığı kulağa garip gelebilir ama her kelimenin birebir türkçesini öğrenmek zorunda değiliz. Kelimenin anlmını bilip, kullanabiliyorsak bize yeterli diye düşünüyorum ama direkt çeviri için hareket/sevk memuru diyebiliriz.',
 'Bu kelimeyi daha çok ileride yazacağınız "Essay" dediğimiz yazılarda yazınızın bir tık daha üst düzey durması için kullanacaksınız. Last 10 years yazmak yerine last decade yazmak kelime bilginizin daha iyi olduğunu gösterebilir. Not: Essay- rapor,makale demek. Üniversitelerin hazırlık sınıflarında bolca yazdırılır.',
@@ -157,3 +167,5 @@ List<String> wordMeaning = [
 'Bize kötü hissettiren bir durumun etkisnin üzerimizden kalktığı anda hissedilen duygu,his.',
 'Nasa\'da şöyle bir söz vardır "Failure is not an option" yani "Başarısızlık bir seçenek değil" veya "Başarısızlık kabul edilemez" anlamına gelmektedir.'
 ];
+}
+

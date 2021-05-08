@@ -1,34 +1,36 @@
 import 'package:flutter/material.dart';
-import '../../components/gradient_box_decoration.dart';
+import 'package:one_day_one_word/core/base/base_state.dart';
+import 'package:one_day_one_word/core/components/gradient_box_decoration.dart';
 
-class LeftDrawer extends StatelessWidget {
+class LeftDrawer extends StatelessWidget with BaseState{
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(padding: EdgeInsets.all(0), children: [
-        Expanded(
-          child: DrawerHeader(
-            decoration: buildGradientBoxDecoration(),
-            child: Text('Menü',
-                style: Theme.of(context).textTheme.headline3.copyWith(
-                    fontWeight: FontWeight.w500, color: Colors.white)),
-          ),
+        DrawerHeader(
+          decoration:
+              LinearGradientBoxDecoration().buildGradientBoxDecoration(),
+          child: Text('Menü',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline3
+                  .copyWith(fontWeight: FontWeight.w500, color: Colors.white)),
         ),
         buildMenuItem(context,
             icon: Icon(Icons.check_circle_sharp, color: Colors.green),
-            stringTitle: 'Bildiğim Kelimeler',
+            stringTitle: applicationStrings.titleKnown,
             toWhichPage: '/known'),
         buildMenuItem(context,
             icon: Icon(Icons.star_sharp, color: Colors.yellow[600]),
-            stringTitle: 'Favori Kelimelerim',
+            stringTitle: applicationStrings.titleFav,
             toWhichPage: '/favourites'),
         buildMenuItem(context,
             icon: Icon(Icons.cancel_sharp, color: Colors.red),
-            stringTitle: 'Bilmediğim Kelimeler',
+            stringTitle: applicationStrings.titleUnknown,
             toWhichPage: '/unknown'),
         buildMenuItem(context,
             icon: Icon(Icons.help_outline),
-            stringTitle: 'Quiz',
+            stringTitle: applicationStrings.titleQuiz,
             toWhichPage: '/quiz')
       ]),
     );

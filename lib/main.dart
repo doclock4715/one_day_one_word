@@ -6,7 +6,7 @@ import 'view/from_left_drawer/quiz.dart';
 import 'view/from_left_drawer/word_favourites.dart';
 import 'view/from_left_drawer/word_known.dart';
 import 'view/from_left_drawer/word_unknown.dart';
-import 'view/home/word_page.dart';
+import 'view/home/word_page_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => WordPage(),
         '/known': (context) => Known(),

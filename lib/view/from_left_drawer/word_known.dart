@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:one_day_one_word/core/base/base_state.dart';
+import 'package:one_day_one_word/core/components/app_bar.dart';
 import 'package:share/share.dart';
-import '../../components/app_bar.dart';
-import '../../constants/lists.dart';
-import '../home/word_page.dart';
+import '../home/word_page_view.dart';
 
 class Known extends StatefulWidget {
   static List<int> known = [];
@@ -12,7 +12,7 @@ class Known extends StatefulWidget {
   _KnownState createState() => _KnownState();
 }
 
-class _KnownState extends State<Known> {
+class _KnownState extends State<Known> with BaseState {
   @override
   void initState() {
     WordPage.knownWordsBox.get('knowns') != null
@@ -24,7 +24,7 @@ class _KnownState extends State<Known> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(title: 'Bildiğim Kelimeler'),
+      appBar: MyAppBar(title: applicationStrings.titleKnown),
       body: ListView.builder(
         itemCount: Known.known.length,
         itemBuilder: (context, i) {
@@ -32,18 +32,18 @@ class _KnownState extends State<Known> {
             actionPane: SlidableDrawerActionPane(),
             actions: [
               IconSlideAction(
-                caption: 'Paylaş',
+                caption: applicationStrings.share,
                 color: Colors.indigo,
                 icon: Icons.share,
                 onTap: () {
                   Share.share(
-                      '${wordEnglish[Known.known[i]]} - ${wordTurkish[Known.known[i]]}');
+                      '${wordContent.wordEnglish[Known.known[i]]} - ${wordContent.wordTurkish[Known.known[i]]}');
                 },
               )
             ],
             secondaryActions: [
               IconSlideAction(
-                caption: 'Sil',
+                caption: applicationStrings.delete,
                 color: Colors.red,
                 icon: Icons.delete,
                 onTap: () {
@@ -59,7 +59,7 @@ class _KnownState extends State<Known> {
             ],
             child: ListTile(
               title: Text(
-                  '${Known.known[i] + 1}. ${wordEnglish[Known.known[i]]} - ${wordTurkish[Known.known[i]]}'),
+                  '${Known.known[i] + 1}. ${wordContent.wordEnglish[Known.known[i]]} - ${wordContent.wordTurkish[Known.known[i]]}'),
               onTap: () {
                 wordCounter = Known.known[i];
                 Navigator.pushNamed(context, '/');
