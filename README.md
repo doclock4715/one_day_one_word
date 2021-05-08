@@ -10,8 +10,8 @@ Eng: One Day One word aims to teach people English words. Actually, the purpose 
 
 ## Uygulama'nın Ekran Görüntüleri - ScreenShots of App
 
-![word3](https://github.com/doclock4715/one_day_one_word/blob/master/assets/images/word3.jpg)![word7Known](https://github.com/doclock4715/one_day_one_word/blob/master/assets/images/word7Known.jpg)
-
+![word3](https://github.com/doclock4715/one_day_one_word/blob/master/assets/images/word3.jpg)
+![word7Known](https://github.com/doclock4715/one_day_one_word/blob/master/assets/images/word7Known.jpg)
 ![word37](https://github.com/doclock4715/one_day_one_word/blob/master/assets/images/word37.jpg)
 ![word37fav](https://github.com/doclock4715/one_day_one_word/blob/master/assets/images/word37fav.jpg)
 ![menu](https://github.com/doclock4715/one_day_one_word/blob/master/assets/images/menu.jpg)
