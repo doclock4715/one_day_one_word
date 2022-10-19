@@ -8,7 +8,7 @@ Hive (Lokal Depolama)
 Eng: One Day One word aims to teach people English words. Actually, the purpose of the application was that I wanted my cousin to learn English. Although I advised him, he does not show much interest in learning English, at least as far as I can understand. So I decided to teach my cousin 1 English word every day via Whatsapp. These words were not just English-Turkish translation, they were be explained and supported with resources such as pictures, videos, etc. as much as I could. then, what I started with only my cousin turned into a group of three, my own brother, my cousin and his cousin. So I decided to turn this event into a mobile application. This is the origin story of One Day One Word. The program is very simple to use and you can get an idea by looking at the screenshots.
 
 Used technologies:
-Hive (Local Databyse)
+Hive (Local Database)
 
 
 ## Uygulama'nın Ekran Görüntüleri - ScreenShots of App
